@@ -1,0 +1,195 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Jura", sans-serif;
+}
+
+:root {
+    --preto: #0F0F0F;
+    --verdeEsuro: #4F6C35;
+    --verdeClaro: #F6FBF9;
+    --verdeClaroGradiente: #EBF9E9;
+    --bege: #FEF7F0;
+    --laranjaEscuro: #4D2700;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    background-color: var(--preto);
+}
+
+.containerLogo {
+    width: 120px;
+    height: 70%;
+}
+
+.containerLogo img {
+    width: 100%;
+    height: 100%;
+}
+
+.containerPesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+}
+
+input {
+    width: 60%;
+    height: 30px;
+}
+
+#pesquisar {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffd8b1;
+    height: 30px;
+    width: 30px;
+}
+
+/* Main */
+/* Primeiro container de texto */
+main {
+    background-color: var(--verdeClaro);
+    height: 1012px;
+}
+
+.primeiroContainerTexto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    gap: 30px;
+    width: 100%;
+    height: 35%;
+    background-color: var(--bege);
+}
+
+.primeiroContainerTexto .img {
+    border-style: solid;
+    border-color: var(--laranjaEscuro);
+}
+
+.img {
+    width: 190px;
+    height: 150px;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+}
+
+.primeiroContainerTexto p {
+    text-align: justify;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Container do carrossel de imagens */
+.carrosselImgs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25%;
+}
+
+.carrosselImgs p {
+    display: none;
+}
+
+.containerCarrossel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    height: 90%;
+}
+
+#animal {
+    width: 95%;
+    height: 45%;
+    border-style: solid;
+    border-color: var(--preto);
+    background-image: url(./img/biomaAfricano.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#habitat {
+    width: 95%;
+    height: 45%;
+    border-style: solid;
+    border-color: var(--preto);
+    background-image: url(./img/biomaAfricano.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Segundo container de texto */
+.segundoContainerTexto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    gap: 30px;
+    width: 100%;
+    height: 40%;
+    background-color: var(--bege);
+}
+
+.segundoContainerTexto .img {
+    border-style: solid;
+    border-color: var(--verdeEsuro);
+}
+
+.segundoContainerTexto p {
+    text-align: justify;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    height: 243px;
+    background-color: var(--preto);
+    color: white;
+    font-size: 10px;
+}
+
+.informacoes {
+    width: 100%;
+    height: 80%;
+}
+
+.creditos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-top-style: solid;
+    border-top-color: white;
+}
+
+footer img {
+    width: 30px;
+    height: 40px;
+}
