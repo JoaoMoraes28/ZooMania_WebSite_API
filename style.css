@@ -12,6 +12,7 @@
     --verdeClaroGradiente: #EBF9E9;
     --bege: #FEF7F0;
     --laranjaEscuro: #4D2700;
+    --laranjaClaro: #F9F1E3;
 }
 
 /* Estilos para a página main.html */
@@ -67,15 +68,34 @@ input {
 }
 
 .primeiroContainerTexto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
     align-items: center;
     padding-top: 10px;
     gap: 30px;
     width: 100%;
     height: 35%;
     background-color: var(--bege);
+    grid-template-areas:
+        "e1 e1"
+        "e2 e2"
+        "e3 e3"
+    ;
+
+    grid-template-rows: (2, 50%);
+    grid-template-columns: (2, 50%);
+}
+
+.primeiroContainerTexto h2 {
+    grid-area: e1;
+}
+
+.primeiroContainerTexto .img {
+    grid-area: e2;
+}
+
+.primeiroContainerTexto .conteudoTexto {
+    grid-area: e3;
 }
 
 .primeiroContainerTexto .img {
@@ -145,15 +165,34 @@ input {
 
 /* Segundo container de texto */
 .segundoContainerTexto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
     align-items: center;
     padding-top: 10px;
     gap: 30px;
     width: 100%;
     height: 35%;
     background-color: var(--bege);
+    grid-template-areas:
+        "e1 e1"
+        "e2 e2"
+        "e3 e3"
+    ;
+
+    grid-template-rows: (2, 50%);
+    grid-template-columns: (2, 50%);
+}
+
+.segundoContainerTexto h2 {
+    grid-area: e1;
+}
+
+.segundoContainerTexto .img {
+    grid-area: e2;
+}
+
+.segundoContainerTexto .conteudoTexto {
+    grid-area: e3;
 }
 
 .segundoContainerTexto .img {
@@ -207,23 +246,175 @@ footer img {
     height: 93%;
 }
 
+#tituloCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.nome {
+    font-weight: 600;
+}
+
 #card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
     gap: 10px;
     width: 45%;
-    height: 15%;
-    background-color: orange;
+    height: 17%;
+    background-color: var(--laranjaClaro);
 }
 
 .containerImgCard {
     width: 80%;
     height: 70%;
+    border-style: solid;
+    border-color: var(--verdeEsuro);
 }
 
 .imgCard {
     width: 100%;
     height: 100%;
+}
+
+@media(min-width: 768px) {
+
+    /* Header */
+    header {
+        height: 12vh;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .containerLogo {
+        width: 140px;
+        height: 95%;
+    }
+
+    .containerPesquisa {
+        justify-content: flex-end;
+        width: 40%;
+        height: 80%;
+        padding-right: 20px;
+        padding-top: 30px;
+    }
+
+    input {
+        width: 80%;
+        height: 33px;
+    }
+
+    /* Main */
+    /* Primeiro container de texto */
+    main {
+        display: flex;
+        justify-content: center;
+        height: 1100px;
+    }
+
+    .containerMain {
+        width: 95%;
+        height: 98%;
+        margin-top: 25px;
+        border-style: solid;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-color: var(--preto);
+    }
+
+    .primeiroContainerTexto {
+        height: 25%;
+        padding-top: 0px;
+        gap: 0px;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        grid-template-areas:
+            "e2 e1 e1"
+            "e2 e3 e3"
+            "e2 e3 e3"
+        ;
+
+        grid-template-rows: (3, 23.3%);
+        grid-template-columns: (3, 33.3%);
+    }
+
+    .primeiroContainerTexto h2 {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        padding-left: 28px;
+        height: 100%;
+    }
+
+    .img {
+        margin-left: 15px;
+        width: 210px;
+        height: 180px;
+    }
+
+    .primeiroContainerTexto .conteudoTexto {
+        padding-left: 20px;
+        height: 100%;
+    }
+
+    .primeiroContainerTexto p {
+        font-size: 15px;
+    }
+
+    /* Container do carrosel e imagens */
+    .carrosselImgs {
+        height: 50%;
+    }
+
+    .carrosselImgs p {
+        display: flex;
+        width: 100%;
+        padding: 0px 35px 0px 35px;
+    }
+
+    .carrosselImgs p:nth-child(3) {
+        justify-content: flex-end;
+    }
+
+    .containerCarrossel {
+        height: 80%;
+        width: 95%;
+    }
+
+    /* Segundo container de texto */
+    .segundoContainerTexto {
+        height: 25%;
+        padding-top: 0px;
+        gap: 0px;
+        grid-template-areas:
+            "e2 e1 e1"
+            "e2 e3 e3"
+            "e2 e3 e3"
+        ;
+
+        grid-template-rows: (3, 23.3%);
+        grid-template-columns: (3, 33.3%);
+    }
+
+    .segundoContainerTexto h2 {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        padding-left: 28px;
+        height: 100%;
+    }
+
+    .segundoContainerTexto .conteudoTexto {
+        padding-left: 20px;
+        height: 100%;
+    }
+
+    .segundoContainerTexto p {
+        font-size: 15px;
+    }
 }
