@@ -43,6 +43,7 @@ header {
     justify-content: center;
     width: 100%;
     height: 30%;
+    margin-bottom: 10px;
 }
 
 input {
@@ -238,12 +239,13 @@ footer img {
 .containerCards {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 30px;
     flex-wrap: wrap;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 10px;
     width: 100%;
-    height: 93%;
+    height: 92%;
 }
 
 #tituloCards {
@@ -251,7 +253,9 @@ footer img {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 6%;
     font-size: 1.3rem;
+    background-color: var(--bege);
 }
 
 .nome {
@@ -286,27 +290,36 @@ footer img {
 
     /* Header */
     header {
-        height: 12vh;
-        flex-direction: row;
-        justify-content: flex-end;
+        height: 13vh;
+        display: grid;
+        grid-template-columns: 40% 20% 40%;
     }
 
     .containerLogo {
-        width: 140px;
-        height: 95%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        grid-column: 2/3;
+    }
+
+    .containerLogo img {
+        width: 80%;
+        height: 70%;
     }
 
     .containerPesquisa {
-        justify-content: flex-end;
-        width: 40%;
+        width: 100%;
         height: 80%;
         padding-right: 20px;
-        padding-top: 30px;
+        padding-top: 70px;
+        grid-column: 3/3;
     }
 
     input {
         width: 80%;
-        height: 33px;
+        height: 10%px;
     }
 
     /* Main */
@@ -315,6 +328,8 @@ footer img {
         display: flex;
         justify-content: center;
         height: 1100px;
+        background: #355223;
+        background: linear-gradient(0deg, rgba(53, 82, 35, 1) 0%, rgba(235, 249, 233, 1) 100%);
     }
 
     .containerMain {
@@ -377,6 +392,18 @@ footer img {
         padding: 0px 35px 0px 35px;
     }
 
+    .carrosselImgs p:nth-child(1) span {
+        color: var(--laranjaEscuro);
+        padding: 0px 5px 0px 5px;
+        font-weight: 600;
+    }
+
+    .carrosselImgs p:nth-child(3) span {
+        color: var(--verdeEsuro);
+        padding: 0px 5px 0px 5px;
+        font-weight: 600;
+    }
+
     .carrosselImgs p:nth-child(3) {
         justify-content: flex-end;
     }
@@ -416,5 +443,78 @@ footer img {
 
     .segundoContainerTexto p {
         font-size: 15px;
+    }
+
+    /* Estilos para a página cards.html */
+    #tituloCards {
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        height: 5%;
+    }
+
+    #card {
+        width: 30%;
+        height: 20%;
+    }
+}
+
+@media(min-width: 1280px) {
+
+    header {
+        
+    }
+
+    /* Main */
+    /* Primeiro container de texto */
+    .containerMain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .primeiroContainerTexto {
+        height: 23%;
+        width: 90%;
+        border-radius: 20px;
+        margin-top: 15px;
+    }
+
+    .img {
+        width: 240px;
+        height: 210px;
+    }
+
+    .primeiroContainerTexto p {
+        font-size: 18px;
+    }
+
+    /* Container do carrosel e imagens */
+    .containerCarrossel {
+        height: 100%;
+        width: 70%;
+    }
+
+    .carrosselImgs p {
+        font-size: 20px;
+        padding: 0px 155px 0px 155px;
+    }
+
+    /* Segundo container de texto */
+    .segundoContainerTexto {
+        height: 23%;
+        width: 90%;
+        border-radius: 20px;
+        margin-bottom: 15px;
+    }
+
+    .segundoContainerTexto p {
+        font-size: 18px;
+    }
+
+    /* Estilos para a página cards.html */
+    #card {
+        width: 23%;
+        height: 27%;
     }
 }
