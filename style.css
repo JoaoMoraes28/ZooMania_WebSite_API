@@ -149,9 +149,13 @@ input {
     height: 45%;
     border-style: solid;
     border-color: var(--preto);
-    background-image: url(./img/biomaAfricano.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#imgCarroselAnimal {
+    width: 100%;
+    height: 100%;
 }
 
 #habitat {
@@ -159,9 +163,13 @@ input {
     height: 45%;
     border-style: solid;
     border-color: var(--preto);
-    background-image: url(./img/biomaAfricano.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#imgCarroselHabitat {
+    width: 100%;
+    height: 100%;
 }
 
 /* Segundo container de texto */
@@ -460,8 +468,22 @@ footer img {
 
 @media(min-width: 1280px) {
 
-    header {
-        
+    /* Header */
+    .containerLogo {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .containerLogo img {
+        width: 60%;
+        height: 90%;
+    }
+
+    .containerPesquisa {
+        width: 100%;
+        height: 80%;
+        padding-top: 40px;
     }
 
     /* Main */
@@ -491,7 +513,7 @@ footer img {
 
     /* Container do carrosel e imagens */
     .containerCarrossel {
-        height: 100%;
+        height: 90%;
         width: 70%;
     }
 
