@@ -678,7 +678,7 @@ async function getImageAnimals(data) {
 
 function createCards(data, images) {
     if (cards.length > 0) {
-        
+
     }
 
     const containerCards = document.getElementById('containerCards')
@@ -756,7 +756,7 @@ function createCards(data, images) {
         cards.push(card)
         indexId++
     })
-
+    cards.forEach(setEventListener)
 }
 
 
