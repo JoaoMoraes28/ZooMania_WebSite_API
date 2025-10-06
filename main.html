@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
-    <script src="app_main.js" type="module" defer></script>
+    <script src="./modulo/main_app.js" type="module" defer></script>
     <title>Document</title>
 </head>
 
@@ -19,8 +19,8 @@
             <img src="./img/logoZooMania.png" alt="">
         </div>
         <div class="containerPesquisa">
-            <input type="text">
-            <button id="pesquisar">
+            <input id="inputMain" type="text">
+            <button id="pesquisarMain">
                 <img src="./img/lupaPesquisa.png" alt="">
             </button>
         </div>
@@ -43,10 +43,10 @@
                 <p>Descubra<span>MILHARES</span>de espécies</p>
                 <div class="containerCarrossel">
                     <div id="animal">
-                        
+                        <img id="imgCarroselAnimal" src="./img/white_shark.jpeg" alt="">
                     </div>
                     <div id="habitat">
-                        
+                        <img id="imgCarroselHabitat" src="./img/biomaOceanico.jpg" alt="">
                     </div>
                 </div>
                 <p>e<span>ONDE</span>vivem</p>
@@ -66,7 +66,24 @@
         </div>
     </main>
     <footer>
-        <div class="informacoes"></div>
+        <div class="informacoes">
+            <div class="links">
+                <ul class="api's">
+                    <li class="tituloUl">API's utilizadas</li>
+                    <li><a href=""></a>Animals API</li>
+                    <li><a href=""></a>Google Search API</li>
+                </ul>
+                <ul class="contato">
+                    <li class="tituloUl">Desenvolvedor</li>
+                    <li>email: joaovictor.moraes2728@gmail.com</li>
+                    <li>github: <a href=""></a>JoaoMoraes28</li>
+                </ul>
+            </div>
+            <div class="senai">
+                <span>Projeto educacional </span>
+                <button>SENAI</button>
+            </div>
+        </div>
         <div class="creditos">
             <img src="./img/logoZooManiaFavicon.png" alt="">
             <span>João Victor Santos de Moraes</span>
