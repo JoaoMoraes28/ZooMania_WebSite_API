@@ -11,9 +11,11 @@ var maxHeightCardDestaque
 var maxWidthCards
 var maxHeightCards
 var buttonPesquisa = document.getElementById('pesquisarCards')
+var titulo = document.getElementById('tituloCards')
 
 var urlSearch = new URLSearchParams(location.search)
 let animalByMain = urlSearch.get('q')
+titulo.innerHTML = `Resultados para "${animalByMain}"`
 
 var animalPrototipo = [
     {
@@ -656,20 +658,23 @@ async function getDataAnimals(animal) {
     })
 
     let dataAnimal = await response.json()
-    createCards(dataAnimal, imagensPrototipo)
-    cards.forEach(setEventListener)
 
+    if (dataAnimal == 0) {
+        titulo.innerHTML = `Nenhum resultado encontrado`
+
+    } else {
+        titulo.innerHTML = `Resultados para "${animal}"`
+        getImageAnimals(dataAnimal)
+        cards.forEach(setEventListener)
+    }
 }
 
 async function getImageAnimals(data) {
     let images = []
 
     for (let i = 0; i < data.length; i++) {
-        let response = await fetch(`https://api.freepik.com/v1/resources?term=${data[i].name}+real&type=photo&limit=3`, {
-            headers: {
-                'x-freepik-api-key': '--ACCESS_KEY_API'
-            }
-        })
+        let response = await fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyBRYDQ723Pkwu9JtQ0JayMi9KltbZqbxXY&cx=4126a93c66d594c93&q=${data.taxonomy.scientific_name}`)
+    
         let imagesJson = await response.json()
         images.push(imagesJson.data[0].url)
     }
@@ -690,6 +695,7 @@ function createCards(data, images) {
 
     const containerCards = document.getElementById('containerCards')
     let indexId = 1
+    let indexImg = 0
 
     const atributosLi = [
         'Classe:',
@@ -755,7 +761,7 @@ function createCards(data, images) {
         listConteudo.classList.add('listaConteudoAnimal')
 
         pNome.innerHTML = item.name
-        img.src = '../img/redPanda.jpg'
+        img.src = `${images[indexImg]}`
         card.style.maxWidth = `${maxWidthCards}`
         card.style.maxHeight = `${maxHeightCards}`
 
@@ -838,7 +844,7 @@ function setMaxCardsSize() {
         maxHeightCards = '20%'
     }
 
-    
+
 }
 
 buttonPesquisa.addEventListener('click', () => {

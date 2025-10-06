@@ -28,24 +28,24 @@ function definirHabitatAnimal(srcImg) {
     if (srcImg.includes("shark")) {
         imgCarroselHabitat.src = '../img/biomaOceanico.jpg'
 
-    } else if(srcImg.includes("canguro")) {
+    } else if (srcImg.includes("canguro")) {
         imgCarroselHabitat.src = '../img/biomaOceania.jpg'
-        
-    } else if(srcImg.includes("cheetah")) {
+
+    } else if (srcImg.includes("cheetah")) {
         imgCarroselHabitat.src = '../img/biomaAfricano.jpg'
-        
-    } else if(srcImg.includes("whale")) {
+
+    } else if (srcImg.includes("whale")) {
         imgCarroselHabitat.src = '../img/biomaOceanico.jpg'
-        
-    } else if(srcImg.includes("wolf")) {
+
+    } else if (srcImg.includes("wolf")) {
         imgCarroselHabitat.src = '../img/biomaAmericano.jpg'
-        
-    } else if(srcImg.includes("aguia")) {
+
+    } else if (srcImg.includes("aguia")) {
         imgCarroselHabitat.src = '../img/biomaAmericano.jpg'
-        
-    } else if(srcImg.includes("tigre")) {
+
+    } else if (srcImg.includes("tigre")) {
         imgCarroselHabitat.src = '../img/biomaAsiatico.jpg'
-        
+
     }
 }
 
@@ -55,5 +55,11 @@ buttonPesquisar.addEventListener('click', () => {
     let input = document.getElementById('inputMain')
     let animal = input.value
 
-    window.open(`../cards.html?q=${animal}`, "_self")
+    if (animal == "") {
+        alert('Insira algum nome no campo de texto')
+    
+    } else {
+        window.open(`../cards.html?q=${animal}`, "_self")
+    
+    }
 })
