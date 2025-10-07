@@ -59,7 +59,7 @@ input {
     height: 30px;
 }
 
-#pesquisar {
+button {
     all: unset;
     display: flex;
     justify-content: center;
@@ -277,10 +277,19 @@ footer {
     height: 90%;
 }
 
-.links ul {
-    display: grid;
-    width: 100%;
-    gap: 0px;
+ul {
+    width: 50%;
+}
+
+.senai {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+}
+
+.senai a {
+    color: red;
 }
 
 .tituloUl {
