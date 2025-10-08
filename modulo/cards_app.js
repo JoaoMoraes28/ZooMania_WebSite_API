@@ -1,20 +1,14 @@
 'use strict'
 
 var cards = []
-var close = document.getElementById('close')
 var cardDestaque
 var atributosCard = []
-var widthCard
-var heightCard
-var maxWidthCardDestaque
-var maxHeightCardDestaque
-var maxWidthCards
-var maxHeightCards
 var buttonPesquisa = document.getElementById('pesquisarCards')
 var titulo = document.getElementById('tituloCards')
+var close = document.getElementById('close')
 
 var urlSearch = new URLSearchParams(location.search)
-let animalByMain = urlSearch.get('q')
+var animalByMain = urlSearch.get('q')
 titulo.innerHTML = `Resultados para "${animalByMain}"`
 
 var animalPrototipo = [
@@ -626,6 +620,111 @@ var animalPrototipo = [
             weight: '19 lbs'
         }
     },
+    {
+        name: 'Wire Fox Terrier',
+        taxonomy: {
+            kingdom: 'Animalia',
+            phylum: 'Chordata',
+            class: 'Mammalia',
+            order: 'Carnivora',
+            family: 'Canidae',
+            genus: 'Canis',
+            scientific_name: 'Canis lupus'
+        },
+        locations: ['Europe'],
+        characteristics: {
+            temperament: 'Alert, friendly, and confident',
+            diet: 'Omnivore',
+            color: 'BlackWhiteTan',
+            skin_type: 'Hair',
+            lifespan: '13 – 14 years',
+            weight: '19 lbs'
+        }
+    },
+    {
+        name: 'Wire Fox Terrier',
+        taxonomy: {
+            kingdom: 'Animalia',
+            phylum: 'Chordata',
+            class: 'Mammalia',
+            order: 'Carnivora',
+            family: 'Canidae',
+            genus: 'Canis',
+            scientific_name: 'Canis lupus'
+        },
+        locations: ['Europe'],
+        characteristics: {
+            temperament: 'Alert, friendly, and confident',
+            diet: 'Omnivore',
+            color: 'BlackWhiteTan',
+            skin_type: 'Hair',
+            lifespan: '13 – 14 years',
+            weight: '19 lbs'
+        }
+    },
+    {
+        name: 'Wire Fox Terrier',
+        taxonomy: {
+            kingdom: 'Animalia',
+            phylum: 'Chordata',
+            class: 'Mammalia',
+            order: 'Carnivora',
+            family: 'Canidae',
+            genus: 'Canis',
+            scientific_name: 'Canis lupus'
+        },
+        locations: ['Europe'],
+        characteristics: {
+            temperament: 'Alert, friendly, and confident',
+            diet: 'Omnivore',
+            color: 'BlackWhiteTan',
+            skin_type: 'Hair',
+            lifespan: '13 – 14 years',
+            weight: '19 lbs'
+        }
+    },
+    {
+        name: 'Wire Fox Terrier',
+        taxonomy: {
+            kingdom: 'Animalia',
+            phylum: 'Chordata',
+            class: 'Mammalia',
+            order: 'Carnivora',
+            family: 'Canidae',
+            genus: 'Canis',
+            scientific_name: 'Canis lupus'
+        },
+        locations: ['Europe'],
+        characteristics: {
+            temperament: 'Alert, friendly, and confident',
+            diet: 'Omnivore',
+            color: 'BlackWhiteTan',
+            skin_type: 'Hair',
+            lifespan: '13 – 14 years',
+            weight: '19 lbs'
+        }
+    },
+    {
+        name: 'Wire Fox Terrier',
+        taxonomy: {
+            kingdom: 'Animalia',
+            phylum: 'Chordata',
+            class: 'Mammalia',
+            order: 'Carnivora',
+            family: 'Canidae',
+            genus: 'Canis',
+            scientific_name: 'Canis lupus'
+        },
+        locations: ['Europe'],
+        characteristics: {
+            temperament: 'Alert, friendly, and confident',
+            diet: 'Omnivore',
+            color: 'BlackWhiteTan',
+            skin_type: 'Hair',
+            lifespan: '13 – 14 years',
+            weight: '19 lbs'
+        }
+    },
 ]
 
 var imagensPrototipo = [
@@ -673,14 +772,13 @@ async function getImageAnimals(data) {
     let images = []
 
     for (let i = 0; i < data.length; i++) {
-        let response = await fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyBRYDQ723Pkwu9JtQ0JayMi9KltbZqbxXY&cx=4126a93c66d594c93&q=${data.taxonomy.scientific_name}`)
-    
+        let response = await fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyBRYDQ723Pkwu9JtQ0JayMi9KltbZqbxXY&cx=4126a93c66d594c93&q=${data[i].name} animal&searchType=image`)
+        
         let imagesJson = await response.json()
-        images.push(imagesJson.data[0].url)
+        images.push(imagesJson.items[0].link)
     }
-
+  
     createCards(data, images)
-
 }
 
 function createCards(data, images) {
@@ -760,19 +858,12 @@ function createCards(data, images) {
         listAnimal.classList.add('listaTopicosAnimal')
         listConteudo.classList.add('listaConteudoAnimal')
 
-        pNome.innerHTML = item.name
         img.src = `${images[indexImg]}`
-        card.style.maxWidth = `${maxWidthCards}`
-        card.style.maxHeight = `${maxHeightCards}`
-
-
-        let width = 590 / data.length
-        let height = 590 / data.length - 13
-        card.style.width = `${width}%`
-        card.style.height = `${height}%`
+        pNome.innerHTML = item.name
 
         cards.push(card)
         indexId++
+        indexImg++
     })
     cards.forEach(setEventListener)
 }
@@ -788,16 +879,44 @@ function setEventListener(card) {
         const nomeCard = document.querySelector(`#${event.target.id} .nome`)
         const imgCard = document.querySelector(`#${event.target.id} .containerImgCard`)
 
+        card.animate(
+            [
+                { opacity: 0 },
+                { opacity: 1 }
+            ],
+            {
+                duration: 300
+            }
+        )
+
         card.style.position = 'absolute'
-        card.style.maxWidth = `${maxWidthCardDestaque}`
-        card.style.maxHeight = `${maxHeightCardDestaque}`
-        card.style.width = '100%'
-        card.style.height = '100%'
         dadosAnimal.style.display = 'flex'
         filtroEscuro.style.display = 'flex'
         imgCard.style.height = '25%'
         nomeCard.style.height = '10%'
         nomeCard.style.fontSize = '1.3rem'
+
+        let widthWindow = window.innerWidth
+
+        if (widthWindow < 768) {
+            card.style.width = '97%'
+            card.style.height = '870px'
+
+        } else if (widthWindow >= 768 && widthWindow < 1280) {
+            card.style.width = '80%'
+            card.style.height = '870px'
+            card.style.left = '10%'
+
+        } else if (widthWindow >= 1280 && widthWindow < 2100) {
+            card.style.width = '60%'
+            card.style.height = '870px'
+            card.style.left = '20%'
+
+        } else if (widthWindow >= 2100) {
+            card.style.width = '50%'
+            card.style.height = '870px'
+            card.style.left = '25%'
+        }
     })
 
 }
@@ -810,42 +929,35 @@ close.addEventListener('click', () => {
     const imgCard = document.querySelector(`#${cardDestaque} .containerImgCard`)
 
     card.style.position = 'static'
-    card.style.width = `${atributosCard[0]}px`
-    card.style.height = `${atributosCard[1]}px`
+    card.style.width = '100%'
+    card.style.height = '100%'
     dadosAnimal.style.display = 'none'
     filtroEscuro.style.display = 'none'
-    imgCard.style.height = '65%'
-    nomeCard.style.height = '100%'
-    nomeCard.style.fontSize = '60%'
-    card.style.maxWidth = `${maxWidthCards}`
-    card.style.maxHeight = `${maxHeightCards}`
-})
 
-function setMaxCardsSize() {
-    let containerCards = document.getElementById('containerCards')
-    let widthContainer = containerCards.offsetWidth
+    let widthWindow = window.innerWidth
 
-    if (widthContainer >= 100 && widthContainer <= 723) {
-        maxWidthCardDestaque = '95%'
-        maxHeightCardDestaque = '100%'
-        maxWidthCards = '25%'
-        maxHeightCards = '13%'
+    if (widthWindow < 768) {
+        imgCard.style.height = '55%'
+        nomeCard.style.height = '45%'
+        nomeCard.style.fontSize = '0.7rem'
 
-    } else if (widthContainer >= 724 && widthContainer <= 1209) {
-        maxWidthCardDestaque = '80%'
-        maxHeightCardDestaque = '90%'
-        maxWidthCards = '30%'
-        maxHeightCards = '13%'
+    } else if (widthWindow >= 768 && widthWindow < 1280) {
+        imgCard.style.height = '65%'
+        nomeCard.style.height = '35%'
+        nomeCard.style.fontSize = '0.8rem'
 
-    } else if (widthContainer >= 1210 && widthContainer <= 1620) {
-        maxWidthCardDestaque = '60%'
-        maxHeightCardDestaque = '100%'
-        maxWidthCards = '24%'
-        maxHeightCards = '20%'
+    } else if (widthWindow >= 1280 && widthWindow < 2100) {
+        imgCard.style.height = '60%'
+        nomeCard.style.height = '40%'
+        nomeCard.style.fontSize = '0.8rem'
+
+    } else if (widthWindow >= 2100) {
+        imgCard.style.height = '60%'
+        nomeCard.style.height = '40%'
+        nomeCard.style.fontSize = '0.8rem'
     }
 
-
-}
+})
 
 buttonPesquisa.addEventListener('click', () => {
     let input = document.getElementById('inputCards')
@@ -853,6 +965,5 @@ buttonPesquisa.addEventListener('click', () => {
 
     getDataAnimals(animal)
 })
-window.addEventListener('resize', setMaxCardsSize)
-setMaxCardsSize()
+
 getDataAnimals(animalByMain)

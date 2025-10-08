@@ -51,15 +51,33 @@ function definirHabitatAnimal(srcImg) {
 
 setInterval(girarCarroselAnimal, 5000)
 
+function definirEscopoTexto() {
+    let widthWindow = window.innerWidth
+    let pTextoPrimeiro = document.getElementById('pPrimeiroContainer')
+    let pTextoSegundo = document.getElementById('pSegundoContainer')
+
+    if (widthWindow < 768) {
+       pTextoPrimeiro.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!"
+       pTextoSegundo.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!"
+
+    } else if (widthWindow >= 768) {
+        pTextoPrimeiro.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!"
+        pTextoSegundo.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!"
+
+    } 
+}
+
 buttonPesquisar.addEventListener('click', () => {
     let input = document.getElementById('inputMain')
     let animal = input.value
 
     if (animal == "") {
         alert('Insira algum nome no campo de texto')
-    
+
     } else {
         window.open(`../cards.html?q=${animal}`, "_self")
-    
+
     }
 })
+
+window.addEventListener('resize', definirEscopoTexto)
