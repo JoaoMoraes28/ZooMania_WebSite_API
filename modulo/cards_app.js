@@ -1,5 +1,6 @@
 'use strict'
 
+// Variáveis de escopo global
 var cards = []
 var cardDestaque
 var atributosCard = []
@@ -749,6 +750,7 @@ var imagensPrototipo = [
     'https://www.freepik.com/premium-vector/cairn-terrier-icon-clipart-avatar-logotype-isolated-illustration_389388382.htm'
 ]
 
+// Função para obter os dados do aninal pesquisado na API
 async function getDataAnimals(animal) {
     let response = await fetch(`https://api.api-ninjas.com/v1/animals?name=${animal}`, {
         headers: {
@@ -768,20 +770,23 @@ async function getDataAnimals(animal) {
     }
 }
 
+// Função para obter as imagens dos cards
 async function getImageAnimals(data) {
     let images = []
 
     for (let i = 0; i < data.length; i++) {
         let response = await fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyBRYDQ723Pkwu9JtQ0JayMi9KltbZqbxXY&cx=4126a93c66d594c93&q=${data[i].name} animal&searchType=image`)
-        
+
         let imagesJson = await response.json()
         images.push(imagesJson.items[0].link)
     }
-  
+
     createCards(data, images)
 }
 
+// Função para criar e configurar os cards dos animais
 function createCards(data, images) {
+    // If para que, caso haja um nova busca os cards anteriores serão apagados
     if (cards.length > 0) {
         for (let i = 0; i < cards.length; i++) {
             cards[i].parentNode.removeChild(cards[i])
@@ -795,6 +800,7 @@ function createCards(data, images) {
     let indexId = 1
     let indexImg = 0
 
+    // Atributos dos animais
     const atributosLi = [
         'Classe:',
         'Nome Científico:',
@@ -808,6 +814,7 @@ function createCards(data, images) {
     ]
 
     data.forEach((item) => {
+        // Elementos que compoem um card
         const card = document.createElement('div')
         const containerImg = document.createElement('div')
         const img = document.createElement('img')
@@ -816,6 +823,7 @@ function createCards(data, images) {
         const listAnimal = document.createElement('ul')
         const listConteudo = document.createElement('ul')
 
+        // Conteúdos dos atributos dos animais
         let liConteudoAnimal = [
             item.taxonomy.class,
             item.taxonomy.scientific_name,
@@ -828,6 +836,7 @@ function createCards(data, images) {
             item.characteristics.age_of_weaning
         ]
 
+        // Loop para preencher os dados de cada Card
         for (let i = 0; i < 9; i++) {
             if (liConteudoAnimal[i] == undefined) {
 
@@ -844,11 +853,13 @@ function createCards(data, images) {
             }
         }
 
+        // Definindo elementos Pais e Filhos
         containerCards.appendChild(card)
         card.append(containerImg, pNome, divDados)
         containerImg.appendChild(img)
         divDados.append(listAnimal, listConteudo)
 
+        // Adicionando classes aos elementos
         card.classList.add('card')
         card.id = `card${indexId}`
         containerImg.classList.add('containerImgCard')
@@ -858,6 +869,7 @@ function createCards(data, images) {
         listAnimal.classList.add('listaTopicosAnimal')
         listConteudo.classList.add('listaConteudoAnimal')
 
+        // Adicionando imagem e nome ao card
         img.src = `${images[indexImg]}`
         pNome.innerHTML = item.name
 
@@ -865,19 +877,46 @@ function createCards(data, images) {
         indexId++
         indexImg++
     })
+
+    rowsGrid(containerCards)
     cards.forEach(setEventListener)
 }
 
+// Função para definir quantas linhas a grade Grid irá ter para ocupar todos os cards em diferentes responsividades
+function rowsGrid(container) {
+    let divisor 
+    let widthWindow = window.innerWidth
 
+    if (widthWindow < 768) {
+        divisor = 3
+
+    } else if (widthWindow >= 768 && widthWindow < 1280) {
+        divisor = 4
+
+    } else if (widthWindow >= 1280 && widthWindow < 2100) {
+        divisor = 5
+
+    } else if (widthWindow >= 2100) {
+        divisor = 6
+
+    }
+    
+    let quantLinhasGrid = Math.round(cards.length / divisor)
+    if (quantLinhasGrid == 0) {
+        quantLinhasGrid = 1
+    }
+    container.style.gridTemplateRows = `repeat(${quantLinhasGrid},15%)`
+}
+
+// Função para adicionar eventListener aos cards para deixá-los destacados 
 function setEventListener(card) {
     card.addEventListener('click', () => {
-        cardDestaque = event.target.id
-        atributosCard.push(card.offsetWidth)
-        atributosCard.push(card.offsetHeight)
+        cardDestaque = event.currentTarget.id
+
         const filtroEscuro = document.getElementById('filtroEscuro')
-        const dadosAnimal = document.querySelector(`#${event.target.id} .containerDados`)
-        const nomeCard = document.querySelector(`#${event.target.id} .nome`)
-        const imgCard = document.querySelector(`#${event.target.id} .containerImgCard`)
+        const dadosAnimal = document.querySelector(`#${event.currentTarget.id} .containerDados`)
+        const nomeCard = document.querySelector(`#${event.currentTarget.id} .nome`)
+        const imgCard = document.querySelector(`#${event.currentTarget.id} .containerImgCard`)
 
         card.animate(
             [
@@ -889,6 +928,8 @@ function setEventListener(card) {
             }
         )
 
+        // Alterações no card selecionado
+        card.style.transition = 'none'
         card.style.position = 'absolute'
         dadosAnimal.style.display = 'flex'
         filtroEscuro.style.display = 'flex'
@@ -896,6 +937,7 @@ function setEventListener(card) {
         nomeCard.style.height = '10%'
         nomeCard.style.fontSize = '1.3rem'
 
+        // Código para determinar tamanho do card destacado em diferentes tamanhos de telas
         let widthWindow = window.innerWidth
 
         if (widthWindow < 768) {
@@ -921,6 +963,7 @@ function setEventListener(card) {
 
 }
 
+// EventListener para o icone de remover destaque do card
 close.addEventListener('click', () => {
     let card = document.getElementById(cardDestaque)
     const filtroEscuro = document.getElementById('filtroEscuro')
@@ -928,12 +971,14 @@ close.addEventListener('click', () => {
     const nomeCard = document.querySelector(`#${cardDestaque} .nome`)
     const imgCard = document.querySelector(`#${cardDestaque} .containerImgCard`)
 
+    // Atributos para retornar card para seu estado inicial
     card.style.position = 'static'
     card.style.width = '100%'
     card.style.height = '100%'
     dadosAnimal.style.display = 'none'
     filtroEscuro.style.display = 'none'
 
+    // Código para determinar atributos iniciais do card em diferentes tamanhos de telas
     let widthWindow = window.innerWidth
 
     if (widthWindow < 768) {
@@ -957,6 +1002,10 @@ close.addEventListener('click', () => {
         nomeCard.style.fontSize = '0.8rem'
     }
 
+    //Delay para aplicar a transition novamente ao card para que ele não volte distorcido a sua posição inicial
+    setTimeout(() => {
+        card.style.transition = '0.6s ease-in-out'
+    }, 50)
 })
 
 buttonPesquisa.addEventListener('click', () => {

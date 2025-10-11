@@ -1,5 +1,6 @@
 'use strict'
 
+// Variáveis de escopo global
 var buttonPesquisar = document.getElementById('pesquisarMain')
 var imgCarroselAnimal = document.getElementById('imgCarroselAnimal')
 var imgCarroselHabitat = document.getElementById('imgCarroselHabitat')
@@ -14,6 +15,7 @@ const IMG_ANIMAIS = [
     '../img/tigre.jpeg'
 ]
 
+// Função para iniciar o carrosel automático de imagens
 function girarCarroselAnimal() {
     if (indexCarroselAnimal == 7) {
         indexCarroselAnimal = 0
@@ -24,6 +26,7 @@ function girarCarroselAnimal() {
     indexCarroselAnimal++
 }
 
+// Função para definir a imagem de habitat de cada imagem de animal
 function definirHabitatAnimal(srcImg) {
     if (srcImg.includes("shark")) {
         imgCarroselHabitat.src = '../img/biomaOceanico.jpg'
@@ -51,20 +54,22 @@ function definirHabitatAnimal(srcImg) {
 
 setInterval(girarCarroselAnimal, 5000)
 
+// Função para reduzir ou aumentar o conteúdo escrito de acordo com o tamanho da tela
 function definirEscopoTexto() {
     let widthWindow = window.innerWidth
     let pTextoPrimeiro = document.getElementById('pPrimeiroContainer')
     let pTextoSegundo = document.getElementById('pSegundoContainer')
 
     if (widthWindow < 768) {
-       pTextoPrimeiro.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!"
-       pTextoSegundo.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!"
+        let input = document.getElementById('inputMain')
+        pTextoPrimeiro.innerHTML = "Cada clique revela curiosidades, histórias e dados fascinantes sobre os animais que compartilham o mundo conosco. Seja você um estudante, pesquisador ou apenas um curioso apaixonado pela natureza, ZooMania é o seu ponto de partida para descobrir o que há de mais incrível na vida selvagem."
+        pTextoSegundo.innerHTML = "Se você quiser explorar mais sobre um animal específico, basta digitar o nome dele na aba de pesquisa. Em poucos segundos, o sistema retorna uma série de cards informativos com tudo o que você precisa saber: nome científico, peso médio, tamanho, habitat natural e outras curiosidades fascinantes."
 
     } else if (widthWindow >= 768) {
-        pTextoPrimeiro.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!"
-        pTextoSegundo.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, recusandae nemo atque aperiam distinctio non consequuntur? Natus vel, beatae quae aliquid porro officiis? Vitae modi soluta excepturi, veniam temporibus ducimus!"
+        pTextoPrimeiro.innerHTML = "Em cada canto do planeta, a vida pulsa em formas, cores e sons que desafiam a imaginação. Dos felinos que espreitam nas savanas africanas aos minúsculos insetos que dançam nas florestas tropicais, a fauna da Terra é um espetáculo contínuo de adaptação e beleza. ZooMania nasce como uma janela para esse universo selvagem — um projeto educacional que celebra a biodiversidade e convida você a explorar milhares de espécies e seus habitats. Aqui, o aprendizado é uma aventura: cada clique revela curiosidades, histórias e dados fascinantes sobre os animais que compartilham o mundo conosco. Seja você um estudante, pesquisador ou apenas um curioso apaixonado pela natureza, ZooMania é o seu ponto de partida para descobrir o que há de mais incrível na vida selvagem."
+        pTextoSegundo.innerHTML = "Se você quiser explorar mais sobre um animal específico, basta digitar o nome dele na aba de pesquisa. Em poucos segundos, o sistema retorna uma série de cards informativos com tudo o que você precisa saber: nome científico, peso médio, tamanho, habitat natural e outras curiosidades fascinantes. É como abrir uma enciclopédia viva, feita sob medida para sua curiosidade. Essas informações são fornecidas por APIs integradas, como a Animals API e a Google Search API, garantindo dados confiáveis e atualizados. A interface foi pensada para ser intuitiva, permitindo que qualquer pessoa — de estudantes a desenvolvedores — navegue com facilidade e mergulhe no universo animal com apenas alguns cliques."
 
-    } 
+    }
 }
 
 buttonPesquisar.addEventListener('click', () => {
@@ -80,4 +85,6 @@ buttonPesquisar.addEventListener('click', () => {
     }
 })
 
+definirEscopoTexto()
+// Função para atualizar o texto utilizando o resize
 window.addEventListener('resize', definirEscopoTexto)

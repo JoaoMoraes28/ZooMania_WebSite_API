@@ -15,7 +15,7 @@ a {
 
 :root {
     --preto: #0F0F0F;
-    --verdeEsuro: #4F6C35;
+    --verdeEscuro: #4F6C35;
     --verdeClaro: #F6FBF9;
     --verdeClaroGradiente: #EBF9E9;
     --bege: #FEF7F0;
@@ -73,7 +73,7 @@ button {
 /* Primeiro container de texto */
 .containerMain {
     background-color: var(--verdeClaro);
-    height: 1012px;
+    height: 1150px;
 }
 
 .primeiroContainerTexto {
@@ -113,8 +113,8 @@ button {
 }
 
 .img {
-    width: 190px;
-    height: 150px;
+    width: 170px;
+    height: 130px;
 }
 
 .img img {
@@ -124,7 +124,7 @@ button {
 
 .primeiroContainerTexto p {
     text-align: justify;
-    font-size: 16px;
+    font-size: 15px;
     padding: 10px;
 }
 
@@ -227,12 +227,12 @@ button {
 
 .segundoContainerTexto .img {
     border-style: solid;
-    border-color: var(--verdeEsuro);
+    border-color: var(--verdeEscuro);
 }
 
 .segundoContainerTexto p {
     text-align: justify;
-    font-size: 16px;
+    font-size: 15px;
     padding: 10px;
 }
 
@@ -242,7 +242,7 @@ button {
     padding: 10px;
     position: absolute;
     width: 100%;
-    height: 1100px;
+    height: 1150px;
     background-color: #0f0f0fa4;
 }
 
@@ -301,6 +301,7 @@ ul {
     justify-content: center;
     align-items: center;
     gap: 5px;
+    padding-top: 5px;
     border-top-style: solid;
     border-top-color: white;
 }
@@ -313,14 +314,14 @@ footer img {
 /* Estilos para a página cards.html */
 #containerCards {
     display: grid;
-    grid-template-rows: 15% 15% 15% 15% 15% 15%;
     grid-template-columns: 32% 32% 32%;
     gap: 3px;
     padding-left: 7px;
     padding-top: 10px;
     width: 100%;
-    height: 92%;
-
+    height: 93.5%;
+    overflow: auto;
+    scrollbar-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
 }
 
 #tituloCards {
@@ -359,7 +360,7 @@ footer img {
     height: 55%;
     margin-top: 10px;
     border-style: solid;
-    border-color: var(--verdeEsuro);
+    border-color: var(--verdeEscuro);
 }
 
 .imgCard {
@@ -397,8 +398,8 @@ li {
     font-style: italic;
 }
 
+/* Responsividades */
 @media(min-width: 768px) {
-
     /* Header */
     header {
         height: 13vh;
@@ -446,7 +447,7 @@ li {
     .containerMain {
         width: 95%;
         height: 98%;
-        margin-top: 25px;
+        margin-top: 30px;
         border-style: solid;
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
@@ -510,7 +511,7 @@ li {
     }
 
     .carrosselImgs p:nth-child(3) span {
-        color: var(--verdeEsuro);
+        color: var(--verdeEscuro);
         padding: 0px 5px 0px 5px;
         font-weight: 600;
     }
@@ -557,6 +558,10 @@ li {
     }
 
     /* Estilos para a página cards.html */
+    #filtroEscuro {
+        height: 1405px;
+    }
+
     #tituloCards {
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
@@ -582,7 +587,6 @@ li {
 }
 
 @media(min-width: 1280px) {
-
     /* Header */
     .containerLogo {
         width: 100%;
@@ -652,7 +656,7 @@ li {
     #tituloCards {
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
-        margin-top: -30px;
+        margin-top: -20px;
     }
 
     #containerCards {
@@ -669,6 +673,16 @@ li {
 
     .nome {
         height: 40%;
+    }
+
+    .card:hover {
+        box-shadow: 5px 0px 30px 0px #0f0f0f65;
+        transform: scale(1.04);
+        transition: 0.6s ease-in-out;
+    }
+
+    a:hover {
+        color: var(--verdeEscuro);
     }
 }
 
@@ -694,10 +708,10 @@ li {
     header {
         height: 18vh;
     }
-    
+
     .containerLogo {
         height: 70%;
-        
+
     }
 
 }
