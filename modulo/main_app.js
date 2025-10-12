@@ -80,7 +80,7 @@ buttonPesquisar.addEventListener('click', () => {
         alert('Insira algum nome no campo de texto')
 
     } else {
-        window.open(`../cards.html?q=${animal}`, "_self")
+        window.open(`https://joaomoraes28.github.io/ZooMania_WebSite_API/cards.html?q=${animal}`, "_self")
 
     }
 })
