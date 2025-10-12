@@ -35,6 +35,25 @@ header {
     background-color: var(--preto);
 }
 
+.containerBack {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 160px;
+    top: 10px;
+    left: 10px;
+    color: white;
+}
+
+#arrowBack {
+    width: 20px;
+}
+
+.containerBack p {
+    font-size: 10px;
+}
+
 .containerLogo {
     width: 120px;
     height: 70%;
@@ -71,6 +90,11 @@ button {
 
 /* Main */
 /* Primeiro container de texto */
+#mainCards {
+    min-height: 1150px;
+    height: 1150px;
+}
+
 .containerMain {
     background-color: var(--verdeClaro);
     height: 1150px;
@@ -319,9 +343,7 @@ footer img {
     padding-left: 7px;
     padding-top: 10px;
     width: 100%;
-    height: 93.5%;
-    overflow: auto;
-    scrollbar-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    height: 94%;
 }
 
 #tituloCards {
@@ -400,11 +422,27 @@ li {
 
 /* Responsividades */
 @media(min-width: 768px) {
+
     /* Header */
     header {
         height: 13vh;
         display: grid;
         grid-template-columns: 40% 20% 40%;
+    }
+
+    .containerBack {
+        gap: 10px;
+        width: 210px;
+        top: 15px;
+        left: 20px;
+    }
+
+    #arrowBack {
+        width: 20px;
+    }
+
+    .containerBack p {
+        font-size: 14px;
     }
 
     .containerLogo {
@@ -446,7 +484,7 @@ li {
 
     .containerMain {
         width: 95%;
-        height: 98%;
+        height: 97.5%;
         margin-top: 30px;
         border-style: solid;
         border-top-right-radius: 20px;
@@ -587,6 +625,7 @@ li {
 }
 
 @media(min-width: 1280px) {
+
     /* Header */
     .containerLogo {
         width: 100%;
@@ -656,7 +695,7 @@ li {
     #tituloCards {
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
-        margin-top: -20px;
+        margin-top: -15px;
     }
 
     #containerCards {
