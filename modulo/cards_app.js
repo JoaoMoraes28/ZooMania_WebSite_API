@@ -294,7 +294,7 @@ buttonPesquisa.addEventListener('click', () => {
 
 // Função para voltar a página principal
 arrowBack.addEventListener('click', () => {
-    window.open('../index.html', "_self")
+    window.open('https://joaomoraes28.github.io/ZooMania_WebSite_API/index.html', "_self")
 })
 
 getDataAnimals(animalByMain)
