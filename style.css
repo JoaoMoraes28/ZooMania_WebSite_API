@@ -27,12 +27,15 @@ a {
 /* Header */
 header {
     display: flex;
+    position: fixed;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 15vh;
+    height: 150px;
+    top: 0px;
     background-color: var(--preto);
+    z-index: 99;
 }
 
 .containerBack {
@@ -90,6 +93,10 @@ button {
 
 /* Main */
 /* Primeiro container de texto */
+main {
+    margin-top: 150px;
+}
+
 #mainCards {
     min-height: 1150px;
     height: 1150px;
@@ -97,7 +104,7 @@ button {
 
 .containerMain {
     background-color: var(--verdeClaro);
-    height: 1150px;
+    height: 100%;
 }
 
 .primeiroContainerTexto {
@@ -266,7 +273,7 @@ button {
     padding: 10px;
     position: absolute;
     width: 100%;
-    height: 1150px;
+    min-height: 1150px;
     background-color: #0f0f0fa4;
 }
 
@@ -425,7 +432,7 @@ li {
 
     /* Header */
     header {
-        height: 13vh;
+        height: 130px;
         display: grid;
         grid-template-columns: 40% 20% 40%;
     }
@@ -477,6 +484,7 @@ li {
     main {
         display: flex;
         justify-content: center;
+        margin-top: 130px;
         height: 1400px;
         background: #355223;
         background: linear-gradient(0deg, rgba(53, 82, 35, 1) 0%, rgba(235, 249, 233, 1) 100%);
@@ -596,10 +604,6 @@ li {
     }
 
     /* Estilos para a página cards.html */
-    #filtroEscuro {
-        height: 1405px;
-    }
-
     #tituloCards {
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
@@ -745,7 +749,7 @@ li {
 
 @media(min-height: 600px) and (width: 1024px) {
     header {
-        height: 18vh;
+        height: 130px;
     }
 
     .containerLogo {

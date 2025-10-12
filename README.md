@@ -18,7 +18,7 @@ ZooMania é um projeto educacional interativo que celebra a biodiversidade do pl
 ## 🔎 Como Utilizar
 
 1. Acesse a interface intuitiva via navegador.
-2. Digite o nome de um animal na barra de pesquisa.
+2. Digite o nome de um animal (em inglês) na barra de pesquisa.
 3. Receba card's informativos com:
    - Nome científico  
    - Peso médio  

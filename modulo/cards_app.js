@@ -148,12 +148,13 @@ function createCards(data, images) {
         indexImg++
     })
 
-    rowsGrid(containerCards)
+    rowsGrid()
     cards.forEach(setEventListener)
 }
 
 // Função para definir quantas linhas a grade Grid irá ter para ocupar todos os cards em diferentes responsividades
-function rowsGrid(container) {
+function rowsGrid() {
+    let container = document.getElementById('containerCards')
     let divisor
     let widthWindow = window.innerWidth
 
@@ -177,9 +178,11 @@ function rowsGrid(container) {
     }
 
     // Definir quantidade de rows na grid e a altura do container
-    let main = document.getElementById('mainCards')
+    const main = document.getElementById('mainCards')
+    const filtroEscuro = document.getElementById('filtroEscuro')
     container.style.gridTemplateRows = `repeat(${quantLinhasGrid},160px)`
     main.style.height = `${(quantLinhasGrid + 1) * 175}px`
+    filtroEscuro.style.height = `${(quantLinhasGrid + 1) * 175}px`
 }
 
 // Função para adicionar eventListener aos cards para deixá-los destacados 
@@ -228,6 +231,7 @@ function setEventListener(card) {
             card.style.width = '60%'
             card.style.height = '870px'
             card.style.left = '20%'
+            imgCard.style.width = '55%'
 
         } else if (widthWindow >= 2100) {
             card.style.width = '50%'
@@ -296,5 +300,8 @@ buttonPesquisa.addEventListener('click', () => {
 arrowBack.addEventListener('click', () => {
     window.open('https://joaomoraes28.github.io/ZooMania_WebSite_API/index.html', "_self")
 })
+
+// Função para responsividade automatica
+window.addEventListener('resize', rowsGrid)
 
 getDataAnimals(animalByMain)
