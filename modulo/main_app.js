@@ -6,13 +6,13 @@ var imgCarroselAnimal = document.getElementById('imgCarroselAnimal')
 var imgCarroselHabitat = document.getElementById('imgCarroselHabitat')
 var indexCarroselAnimal = 1
 const IMG_ANIMAIS = [
-    '/img/white_shark.jpeg',
-    '/img/canguro.jpeg',
-    '/img/cheetah.jpeg',
-    '/img/whale.jpeg',
-    '/img/wolf.jpeg',
-    '/img/aguia.jpeg',
-    '/img/tigre.jpeg'
+    '/ZooMania_WebSite_API/img/white_shark.jpeg',
+    '/ZooMania_WebSite_API/img/canguro.jpeg',
+    '/ZooMania_WebSite_API/img/cheetah.jpeg',
+    '/ZooMania_WebSite_API/img/whale.jpeg',
+    '/ZooMania_WebSite_API/img/wolf.jpeg',
+    '/ZooMania_WebSite_API/img/aguia.jpeg',
+    '/ZooMania_WebSite_API/img/tigre.jpeg'
 ]
 
 // Função para iniciar o carrosel automático de imagens
@@ -29,25 +29,25 @@ function girarCarroselAnimal() {
 // Função para definir a imagem de habitat de cada imagem de animal
 function definirHabitatAnimal(srcImg) {
     if (srcImg.includes("shark")) {
-        imgCarroselHabitat.src = '/img/biomaOceanico.jpg'
+        imgCarroselHabitat.src = '/ZooMania_WebSite_API/img/biomaOceanico.jpg'
 
     } else if (srcImg.includes("canguro")) {
-        imgCarroselHabitat.src = '/img/biomaOceania.jpg'
+        imgCarroselHabitat.src = '/ZooMania_WebSite_API/img/biomaOceania.jpg'
 
     } else if (srcImg.includes("cheetah")) {
-        imgCarroselHabitat.src = '/img/biomaAfricano.jpg'
+        imgCarroselHabitat.src = '/ZooMania_WebSite_API/img/biomaAfricano.jpg'
 
     } else if (srcImg.includes("whale")) {
-        imgCarroselHabitat.src = '/img/biomaOceanico.jpg'
+        imgCarroselHabitat.src = '/ZooMania_WebSite_API/img/biomaOceanico.jpg'
 
     } else if (srcImg.includes("wolf")) {
-        imgCarroselHabitat.src = '/img/biomaAmericano.jpg'
+        imgCarroselHabitat.src = '/ZooMania_WebSite_API/img/biomaAmericano.jpg'
 
     } else if (srcImg.includes("aguia")) {
-        imgCarroselHabitat.src = '/img/biomaAmericano.jpg'
+        imgCarroselHabitat.src = '/ZooMania_WebSite_API/img/biomaAmericano.jpg'
 
     } else if (srcImg.includes("tigre")) {
-        imgCarroselHabitat.src = '/img/biomaAsiatico.jpg'
+        imgCarroselHabitat.src = '/ZooMania_WebSite_API/img/biomaAsiatico.jpg'
 
     }
 }
