@@ -294,7 +294,7 @@ buttonPesquisa.addEventListener('click', () => {
 
 // Função para voltar a página principal
 arrowBack.addEventListener('click', () => {
-    window.open('../main.html', "_self")
+    window.open('../index.html', "_self")
 })
 
 getDataAnimals(animalByMain)
