@@ -95,6 +95,7 @@ button {
 /* Primeiro container de texto */
 main {
     margin-top: 150px;
+    height: 1150px;
 }
 
 #mainCards {
@@ -180,12 +181,12 @@ main {
     align-items: center;
     gap: 5px;
     width: 100%;
-    height: 90%;
+    height: 100%;
 }
 
 #animal {
     width: 95%;
-    height: 45%;
+    height: 48%;
     border-style: solid;
     border-color: var(--preto);
 }
@@ -198,7 +199,7 @@ main {
 
 #habitat {
     width: 95%;
-    height: 45%;
+    height: 48%;
     border-style: solid;
     border-color: var(--preto);
 }
